@@ -4,13 +4,13 @@ import Navigation from '../components/Navigation';
 import Title from '../components/Title';
 
 const Home = () => {
-    return (
-        <div class="app">
-            <Title />
-            <Navigation />
-            <Meal />
-        </div>
-    );
+	return (
+		<div className="app">
+			<Title />
+			<Navigation />
+			<Meal />
+		</div>
+	);
 };
 
 export default Home;

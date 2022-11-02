@@ -19,3 +19,16 @@ input {
 	margin-bottom: 15px;
 	border: 1px solid black;
 }
+
+.meals {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.card {
+}
+
+img {
+	height: 200px;
+}
