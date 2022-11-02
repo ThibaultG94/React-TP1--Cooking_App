@@ -5,6 +5,7 @@ import Card from './Card';
 
 const Meal = () => {
 	const [data, setData] = useState([]);
+	const [textInput, setTextInput] = useState('');
 
 	useEffect(() => {
 		axios
@@ -13,11 +14,20 @@ const Meal = () => {
 	}, []);
 
 	return (
-		<ul className="meals">
-			{data.map((meal, index) => (
-				<Card key="index" meal={meal} />
-			))}
-		</ul>
+		<div className="mealApp">
+			<div className="search">
+				<input
+					type="text"
+					placeholder="Tapez le nom d'un aliment (en anglais)"
+					onChange={(e) => setTextInput(e.target.value)}
+				/>
+			</div>
+			<ul className="meals">
+				{data.map((meal, index) => (
+					<Card key="index" meal={meal} />
+				))}
+			</ul>
+		</div>
 	);
 };
 
