@@ -9,9 +9,12 @@ const App = () => {
 
 	useEffect(() => {
 		axios
-			.get('https://www.themealdb.com/api/json/v1/1/search.php?s')
+			.get(
+				'https://www.themealdb.com/api/json/v1/1/search.php?s=' +
+					textInput
+			)
 			.then((res) => setData(res.data.meals));
-	}, []);
+	}, [textInput]);
 
 	return (
 		<div className="app">
@@ -22,15 +25,10 @@ const App = () => {
 				onChange={(e) => setTextInput(e.target.value)}
 			/>
 			<ul className="meals">
-				{data
-					.filter((meal) =>
-						meal.strMeal
-							.toLowerCase()
-							.includes(textInput.toLowerCase())
-					)
-					.map((meal, index) => (
-						<Card key="index" meal={meal} />
-					))}
+				{data &&
+					data
+						.slice(0, 24)
+						.map((meal) => <Card key={meal.idMeal} meal={meal} />)}
 			</ul>
 		</div>
 	);

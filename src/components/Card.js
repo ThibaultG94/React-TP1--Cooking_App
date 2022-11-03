@@ -9,7 +9,7 @@ const Card = ({ meal }) => {
 				</div>
 				<p>{'Origin : ' + meal.strArea}</p>
 			</div>
-			<img src={meal.strMealThumb} alt={'recette de' + meal.strMeal} />
+			<img src={meal.strMealThumb} alt={'recette de ' + meal.strMeal} />
 			<div className="recette">
 				<p>{meal.strInstructions}</p>
 			</div>
