@@ -9,7 +9,7 @@ const Meal = () => {
 
 	useEffect(() => {
 		axios
-			.get('https://www.themealdb.com/api/json/v1/1/search.php?s=tomato')
+			.get('https://www.themealdb.com/api/json/v1/1/search.php?s')
 			.then((res) => setData(res.data.meals));
 	}, []);
 
@@ -23,9 +23,15 @@ const Meal = () => {
 				/>
 			</div>
 			<ul className="meals">
-				{data.map((meal, index) => (
-					<Card key="index" meal={meal} />
-				))}
+				{data
+					.filter((meal) =>
+						meal.strMeal
+							.toLowerCase()
+							.includes(textInput.toLowerCase())
+					)
+					.map((meal, index) => (
+						<Card key="index" meal={meal} />
+					))}
 			</ul>
 		</div>
 	);
